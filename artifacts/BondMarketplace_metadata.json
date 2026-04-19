@@ -1,0 +1,443 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "organization",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "interestRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "durationDays",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalFundingRequired",
+						"type": "uint256"
+					}
+				],
+				"name": "BondCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "organization",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "logCount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundUsageUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "investor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newAmountRaised",
+						"type": "uint256"
+					}
+				],
+				"name": "Invested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newTrustScore",
+						"type": "uint256"
+					}
+				],
+				"name": "TrustScoreUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "durationDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalFundingRequired",
+						"type": "uint256"
+					}
+				],
+				"name": "createBond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllBonds",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "organizations",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "names",
+						"type": "string[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "interestRates",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "durations",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "totals",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "raised",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "trustScores",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					}
+				],
+				"name": "getBondDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "organization",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "durationDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalFundingRequired",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountRaised",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "trustScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "fundUsageLogs",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "investorAddress",
+						"type": "address"
+					}
+				],
+				"name": "getInvestorPortfolio",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "investedIds",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "investedAmounts",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTrustScore",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					}
+				],
+				"name": "investInBond",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextBondId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					}
+				],
+				"name": "updateFundUsage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "bondId",
+						"type": "uint256"
+					}
+				],
+				"name": "updateTrustScore",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "This contract is intentionally simple for learning/demo purposes.",
+			"kind": "dev",
+			"methods": {
+				"updateFundUsage(uint256,string)": {
+					"details": "Only the bond creator can call this."
+				},
+				"updateTrustScore(uint256)": {
+					"details": "Simple formula for MVP:      - Base score: min(50, logsCount * 10)      - Bonus if updated early: +10 if first update within 7 days of creation      - Bonus for momentum: +2 per 10% funding progress (max +20)      - Max score capped at 100"
+				}
+			},
+			"title": "BondMarketplace",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"createBond(string,uint256,uint256,uint256)": {
+					"notice": "Create and list a new bond."
+				},
+				"getAllBonds()": {
+					"notice": "Returns summary arrays for all bonds."
+				},
+				"getBondDetails(uint256)": {
+					"notice": "Returns complete details for one bond including usage logs."
+				},
+				"getInvestorPortfolio(address)": {
+					"notice": "Returns investor portfolio as bondId/amount arrays."
+				},
+				"investInBond(uint256)": {
+					"notice": "Invest ETH into a specific bond."
+				},
+				"updateFundUsage(uint256,string)": {
+					"notice": "Add a fund usage update for a bond."
+				},
+				"updateTrustScore(uint256)": {
+					"notice": "Updates trust score based on transparency activity."
+				}
+			},
+			"notice": "Simplified MVP contract for listing and investing in decentralized bonds.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BondMarketplace.sol": "BondMarketplace"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BondMarketplace.sol": {
+			"keccak256": "0x4c37bd2c11d73738bff9556d5590dc815c3f947fab34fd94d182fe7f28066bfa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2203092c229cd87053a5313a53343580c55de095fc7ae2b95d36d9d4aaff7d9f",
+				"dweb:/ipfs/QmP4YhgXtN5CKczq8MwbCffDzxBDU32jsnt7G4vd8KS7UZ"
+			]
+		}
+	},
+	"version": 1
+}
